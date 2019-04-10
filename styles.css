@@ -5,7 +5,7 @@ body {
 }
 
 .login {
-    background-image: linear-gradient(#c2c2c2, #c4c4c4);
+    background-color: rgb(218, 218, 218);
     height: 1080px;
     width: 100% !important;
     display: flex;
@@ -17,8 +17,7 @@ body {
 }
 
 .part {
-    background-image: linear-gradient(to right, #0B1B41, #001651);
-
+    background-color: rgb(34, 15, 117);
     height: 100% !important;
     width: 50% !important;
     display: flex;
