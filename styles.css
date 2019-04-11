@@ -42,7 +42,7 @@ h1 {
     font-size: 100px;
     font-weight: 800;
     margin-left: 120px;
-    background-image: url('/assets/tuffy.png');
+    background-image: url('assets/tuffy.png');
     background-repeat: no-repeat;
     background-size: 500px 400px;
     padding-right: 200px;
