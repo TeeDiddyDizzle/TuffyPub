@@ -1,0 +1,90 @@
+.navbar {
+    position: fixed;
+    display: flex;
+    background-color: rgb(34, 15, 117);
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    padding-left: 50px;
+    z-index: 100;
+}
+
+.home {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 20px;
+    padding: 0 10px;
+    text-decoration: none;
+    /* font-family: 'Abril Fatface', cursive; */
+    font-family: bungee;
+    font-size: 20px;
+    color: white;
+    border-radius: 3px;
+
+}
+
+.home:hover{
+    background-color: rgb(46, 25, 138);
+    text-decoration: none;
+}
+ul, li {
+    height: 100% !important;
+}
+
+.nav-link {
+    display: flex;
+    height: 100%;
+    /* margin-right: 50px; */
+    padding: 0 20px 0 20px;
+    align-items: center;
+    transition: 0.3s;
+    text-decoration: none;
+    color: white !important;
+    border-radius: 3px;
+}
+
+.nav-link:hover, .logout:hover {
+    background-color: rgb(106, 95, 151);
+    color: rgb(180, 180, 180);
+}
+
+.search {
+    background-color: rgb(255, 255, 255);
+    border-style: none;
+    border-radius: 1px;
+    position: fixed;
+    right: 150px;
+    width: 20%;
+    padding: 5px 5px 5px 5px;
+}
+
+.logout {
+    // position: fixed;
+    /* margin-right: 0; */
+    // right: 0;
+    /* float: right; */
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.navbar-toggler {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+}
+
+@media (max-width:991px) {
+    .collapse {
+        position: fixed;
+        margin-right: 60% !important;
+        left: 0;
+        top: 60px;
+        background-color: #142A61;
+        opacity: 0.9;
+        border-radius: 5px;
+    }
+}

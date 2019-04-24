@@ -1,0 +1,54 @@
+<ng-container *ngIf="auth.user$ | async as user; else whatThe">
+  <!-- <h2>Name: {{ user.displayName }}</h2>
+  <h2> Email: {{ user.email }}</h2> -->
+  <div class="dashboard">
+    <div class="sidebar">
+        <div class="profile">
+        </div>
+        <p><a class="link name" href="">John Doe</a></p>
+        <ul>
+            <a href=""> 
+                <li class="sidelink">
+                    My Groups
+                </li>
+            </a>
+            <a href=""> 
+                <li class="sidelink">
+                    Friends
+                </li>
+            </a><a href=""> 
+                <li class="sidelink">
+                    Calendar
+                </li>
+            </a><a href=""> 
+                <li class="sidelink">
+                    Preferences
+                </li>
+            </a>
+        </ul>
+    </div>
+    
+    <form id="post-form">
+        <div class="form-group">
+            <textarea class="form-control" rows="4" id="make-post" placeholder="What's going on?"></textarea>
+            <button type="submit" class="btn btn-default" id="post-btn">Post!</button>
+        </div>
+    </form>
+    <div class="card">
+        <div class="bar"><a href="">John Doe</a></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+    </div>
+
+    <div class="card">
+        <div class="bar"><a href="">Jane Doe</a></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+    </div>
+  </div>
+
+  
+  <!-- <script src="post-script.js" charset="utf-8"></script> -->
+</ng-container>
+
+<ng-template #whatThe>
+  How'd you get here?!
+</ng-template>
