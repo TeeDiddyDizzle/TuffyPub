@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from "../../users/auth.service";
+import { ChatService } from "../../shared/chat/chat.service";
 
 @Component({
   selector: 'app-master',
@@ -8,8 +9,10 @@ import { AuthService } from "../../users/auth.service";
   styleUrls: ['./master.component.scss']
 })
 export class MasterComponent implements OnInit {
+  userChats$;
+  constructor(public auth: AuthService, public cs: ChatService) { }
 
-  constructor(public auth: AuthService) { }
-
-  ngOnInit() { }
+  ngOnInit() {
+    this.userChats$ = this.cs.getUserChats();
+  }
 }

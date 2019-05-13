@@ -16,22 +16,29 @@
                 <li class="sidelink">
                     Friends
                 </li>
-            </a><a href=""> 
+            </a>
+            <a href=""> 
                 <li class="sidelink">
                     Calendar
                 </li>
-            </a><a href=""> 
+            </a>
+            <a href=""> 
                 <li class="sidelink">
                     Preferences
                 </li>
             </a>
+        </ul>
+        <ul>
+            <li *ngFor="let chat of userChats$ | async">
+                <a [routerLink]="'chats/' + chat.id">{{ chat.id }} - {{ chat.messages.length }} Messages </a>
+            </li>
         </ul>
     </div>
     <div class="chatRoom">
         <app-chat></app-chat>
     </div>
 
-
+    
     <!-- <form id="post-form">
         <div class="form-group">
             <textarea class="form-control" rows="4" id="make-post" placeholder="What's going on?"></textarea>

@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from "@angular/router";
 import { SharedModule } from "../shared/shared.module";
+import { ChatComponent } from "../shared/chat/chat.component";
+import { AuthGuard } from "../users/auth.guard";
 
 import { MasterComponent } from './master/master.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: MasterComponent },
+  { path: 'chats/:id', component: ChatComponent, canActivate: [AuthGuard] },
+
 ]
 
 @NgModule({
