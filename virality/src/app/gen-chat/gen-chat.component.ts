@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
-import { ChatService } from '../shared/chat/chat.service'
 import { AuthService } from '../users/auth.service';
 
 interface Post {
@@ -29,7 +27,7 @@ export class GenChatComponent implements OnInit {
   postsCol: AngularFirestoreCollection<Post>;
   posts: Observable<Post[]>;
 
-  uName:string;
+  uid:string;
   name:string;
   content:string;
 
@@ -41,18 +39,20 @@ export class GenChatComponent implements OnInit {
   ngOnInit() {
     this.postsCol = this.afs.collection('globalChat');
     this.posts = this.postsCol.valueChanges();
+    this.auth.user$.subscribe(user=>{
+      if(user)
+        this.name = user.displayName;
+        this.uid = user.uid;
+    })
     //this.user = this.auth.user$;
     //const uid = this.auth.getUser();
-    this.name = 'myname';
     //this.uName = this.user.uid;
   }
 
   addPost() {
     //console.log(this.user);
     this.afs.collection('globalChat').add({'name': this.name, 'content': this.content});
-  }
-
-  currentUser() {
-    const uid = this.auth.getUser();
+    //update single chat message using uid and set
+    //this.afs.collection('globalChat').doc(this.uid).set({'name': this.name, 'content': this.content});
   }
 }
