@@ -10,11 +10,11 @@
 }
 
 .chatRoom {
-    // padding-top: 50px;
-    // padding-left: 20%;
-    background-color: grey;
-    height: 100% !important;
-    margin-top: 100px;
+    display: flex;
+    flex-flow: column wrap;
+    padding: 25px;
+    padding-top: 100px;
+    padding-left: 20%;
 }
 
 .nav {

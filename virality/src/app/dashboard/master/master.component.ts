@@ -10,9 +10,11 @@ import { ChatService } from "../../shared/chat/chat.service";
 })
 export class MasterComponent implements OnInit {
   userChats$;
+  globalChat$;
   constructor(public auth: AuthService, public cs: ChatService) { }
 
   ngOnInit() {
     this.userChats$ = this.cs.getUserChats();
+    this.globalChat$ = this.cs.getGlobalChat();
   }
 }

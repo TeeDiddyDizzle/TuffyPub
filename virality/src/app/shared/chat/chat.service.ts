@@ -30,12 +30,11 @@ export class ChatService {
         })
       );
   }
-  
-  getUserChats() {
+  getGlobalChat() {
     return this.auth.user$.pipe(
       switchMap(user => {
         return this.afs
-          .collection('chats', ref => ref.where('uid', '==', user.uid))
+          .collection('chats', ref => ref.where('count', '==', 0))
           .snapshotChanges()
           .pipe(
             map(actions => {
@@ -50,6 +49,25 @@ export class ChatService {
     );
   }
   
+  getUserChats() {
+    return this.auth.user$.pipe(
+      switchMap(user => {
+        return this.afs
+          .collection('chats', ref => ref.where('uid', '==', user.uid ))
+          .snapshotChanges()
+          .pipe(
+            map(actions => {
+              return actions.map(a => {
+                const data: Object = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return { id, ...data };
+              });
+            })
+          );
+      })
+    );
+  }
+
   async create() {
     const { uid } = await this.auth.getUser();
 
