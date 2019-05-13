@@ -8,16 +8,14 @@ import { AuthpagesModule } from "../../users/authpages/authpages.module";
 
 
 import { MasterComponent } from "./master/master.component";
-import { ReferralMasterComponent } from './referral-master/referral-master.component';
 
 const routes: Routes = [
   { path: '', component: MasterComponent },
-  { path: 'referral', component: ReferralMasterComponent },
-  { path: 'referral/:referralID', component: ReferralMasterComponent }
+
 ]
 
 @NgModule({
-  declarations: [MasterComponent, ReferralMasterComponent],
+  declarations: [MasterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

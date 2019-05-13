@@ -1,0 +1,16 @@
+<ng-container *ngIf="chat$ | async as chat">
+  <div  class="chatRoom">
+    <ul *ngFor="let msg of chat.messages; trackBy: trackByCreated">
+      <li>
+        <strong> {{ msg.user?.displayName}}</strong>
+        <br>
+        {{ msg.content }}
+      </li>
+    </ul>
+    <div class="message">
+      <input class="text" [(ngModel)]="newMsg" name="newMsg" placeholder="Enter your message" (keydown.enter)="submit(chat.id)">
+      <input class="send" type="submit" value="Send" (click)="submit(chat.id)">
+    </div>
+    
+  </div>
+</ng-container>

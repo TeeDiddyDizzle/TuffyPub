@@ -11,11 +11,13 @@ import { AlertService } from "../../../services/alert.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  displayName = "";
   email = "";
-  referralID = "";
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  emailValid = false;
+  nameValid = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,9 +37,8 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.email = this.route.snapshot.paramMap.get('email');
-    this.referralID = this.route.snapshot.paramMap.get('referralID')
     this.registerForm = this.formBuilder.group({
+      displayName: [this.displayName, Validators.required],
       email: [this.email, Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -45,39 +46,43 @@ export class RegisterComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
+  checkName() {
+    var regexp = new RegExp('\w* \w*');
+    this.nameValid = regexp.test(this.f.displayName.value);
+    console.log(this.f.displayName.value + ": " + this.nameValid);
+
+  }
+
+  checkEmail() {
+    var regexp = new RegExp('\w*.*@csu.fullerton.edu$');
+    this.emailValid = regexp.test(this.f.email.value);
+    console.log(this.f.displayName.value + ": " + this.emailValid);
+
+  }
 
   onSubmit() {
     this.submitted = true;
 
+    this.checkName();
+    this.checkEmail();
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    if (this.registerForm.invalid || this.emailValid == false || this.nameValid == false) {
       return;
     }
 
     this.loading = true;
-    if (this.referralID != "") {
-      this.auth.signupUser(this.f.email.value, this.f.password.value, this.referralID)
-        .then(
-          data => {
-            this.alert.success('Referral Registration successful, Logged In', true);
-            this.router.navigateByUrl('/dashboard');
-          },
-          error => {
-            this.alert.error(error);
-            this.loading = false;
-          });
-    } else {
-      this.auth.signupUser(this.f.email.value, this.f.password.value)
-        .then(
-          data => {
-            this.alert.success('Registration successful, Logged In', true);
-            this.router.navigateByUrl('/dashboard');
-          },
-          error => {
-            this.alert.error(error);
-            this.loading = false;
-          });
-    }
+
+    
+    this.auth.signupUser(this.f.displayName.value, this.f.email.value, this.f.password.value)
+      .then(
+        data => {
+          this.alert.success('Registration successful, Logged In', true);
+          this.router.navigateByUrl('/dashboard');
+        },
+        error => {
+          this.alert.error(error);
+          this.loading = false;
+        });
   }
 
 }

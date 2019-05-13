@@ -1,0 +1,15 @@
+.chatRoom {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 25px;
+}
+.message {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-right: 10px;
+}
+.text {
+    width: 90%;
+}

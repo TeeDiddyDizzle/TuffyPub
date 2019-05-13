@@ -7,17 +7,15 @@ import { SharedModule } from "../../shared/shared.module";
 import { AboutComponent } from './about/about.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
-import { RoadmapComponent } from './roadmap/roadmap.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'faq', component: FaqComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'roadmap', component: RoadmapComponent },
+  { path: 'contact', component: ContactComponent }
 ]
 
 @NgModule({
-  declarations: [AboutComponent, FaqComponent, ContactComponent, RoadmapComponent],
+  declarations: [AboutComponent, FaqComponent, ContactComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
