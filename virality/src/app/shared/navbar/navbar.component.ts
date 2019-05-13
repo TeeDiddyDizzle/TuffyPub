@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../users/auth.service";
+import { Router } from '@angular/router'
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -10,7 +11,7 @@ import { tap } from 'rxjs/operators';
 export class NavbarComponent implements OnInit {
   navbarOpen = false;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }

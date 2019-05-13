@@ -13,10 +13,6 @@ interface User {
   email: string;
   photoURL?: string;
   displayName?: string;
-  referralURL?: string;
-  referredBy?: string;
-  referrals: Array<string>;
-  numReferred: number;
   creationDate: number;
 }
 
@@ -45,57 +41,64 @@ export class AuthService {
     )
   }
 
+  getUser() {
+    return this.user$.pipe(first()).toPromise();
+  }
+
   isLoggedIn() {
     return this.afAuth.authState.pipe(first());
   }
 
   loginUser(email: string, password: string): Promise<auth.UserCredential> {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .catch(error => {
+        alert(error.message);
+        throw new Error(error);
+      });
   }
 
-  signupUser(email: string, password: string, referral?: string): Promise<any> {
+  signupUser(displayName: string, email: string, password: string): Promise<any> {
     const user: User = {
+      displayName: displayName,
       email: email,
-      creationDate: Date.now(),
-      referrals: [],
-      numReferred: 0
+      creationDate: Date.now()
     }
 
-    if (referral !== 'undefined') {
-      user.referredBy = referral
-    }
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then((newUserCredential: auth.UserCredential) => {
         user.uid = newUserCredential.user.uid;
-        user.referralURL = "https://virality-d6e74.firebaseapp.com/referral/" + user.uid
         this.afs.doc(`/users/${newUserCredential.user.uid}`)
           .set(Object.assign({}, user), { merge: true });
       })
       .catch(error => {
-        console.error(error);
+        alert(error.message);
         throw new Error(error);
       });
   }
 
   resetPassword(email: string): Promise<void> {
-    return this.afAuth.auth.sendPasswordResetEmail(email);
+    return this.afAuth.auth.sendPasswordResetEmail(email)
+      .catch(error => {
+        alert(error.message);
+        throw new Error(error);
+      });
   }
 
-  async googleSignIn(referral?: string) {
+  async googleSignIn() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user, referral);
+    return this.updateUserData(credential.user);
   }
 
-  async facebookSignIn(referral?: string) {
+  async facebookSignIn() {
     const provider = new auth.FacebookAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user, referral)
+    return this.updateUserData(credential.user)
   }
 
 
-  private updateUserData(user, referral?: string) {
+  private updateUserData(user) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
@@ -104,16 +107,9 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      referralURL: "https://virality-d6e74.firebaseapp.com/referral/" + user.uid,
-      numReferred: 0,
-      referrals: [],
-      referredBy: "",
       creationDate: Date.now()
     }
 
-    if (referral !== undefined) {
-      data.referredBy = referral;
-    }
     this.router.navigate(['/dashboard']);
     return userRef.set(data, { merge: true })
 

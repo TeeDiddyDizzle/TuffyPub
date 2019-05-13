@@ -2,10 +2,19 @@
     display: flex;
     background-color: rgb(245, 245, 245) !important;
     width: 100%;
+    height: 600px;
     margin: 0;
     font-family: source-sans-pro, Tahoma, Geneva, Verdana, sans-serif !important;
     /* background: linear-gradient(#dfdfdf, #e9e9e9) !important; */
     flex-direction: column;
+}
+
+.chatRoom {
+    // padding-top: 50px;
+    // padding-left: 20%;
+    background-color: grey;
+    height: 100% !important;
+    margin-top: 100px;
 }
 
 .nav {
@@ -199,3 +208,4 @@ a {
         transform: translateY(0);
     }
 }
+
