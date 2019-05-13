@@ -9,7 +9,7 @@ import { MasterComponent } from './master/master.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: MasterComponent },
-  { path: 'chats/:id', component: ChatComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard/chats/:id', component: ChatComponent, canActivate: [AuthGuard] },
 
 ]
 

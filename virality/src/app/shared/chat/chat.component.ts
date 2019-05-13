@@ -26,11 +26,11 @@ export class ChatComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    // this.postsCol = this.afs.collection('posts');
-    // this.posts = this.postsCol.valueChanges();
-    const chatID = this.route.snapshot.paramMap.get('id');
-    const source = this.cs.get('id5');
-    // this.chat$ = this.cs.joinUsers(source);
+
+    const chatId = this.route.snapshot.paramMap.get('id');
+    const source = this.cs.get(chatId);
+    this.chat$ = this.cs.joinUsers(source);
+    this.scrollBottom(500);
   }
 
   submit(chatID) {
@@ -39,9 +39,14 @@ export class ChatComponent implements OnInit {
     }
     this.cs.sendMessage(chatID, this.newMsg);
     this.newMsg = '';
+    this.scrollBottom(100);
   }
   
   trackByCreated(i, msg) {
     return msg.createdAt;
+  }
+
+  private scrollBottom(delay) {
+    setTimeout(() => window.scrollTo(0, document.body.scrollHeight), delay);
   }
 }
