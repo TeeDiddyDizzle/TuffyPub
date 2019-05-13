@@ -29,35 +29,23 @@
             </a>
         </ul>
         <ul>
+            <!-- <li *ngFor="let global of globalChat$ | async">
+                <a [routerLink]="'chats/' + global.id">Global Chat: {{ global.id }} - {{ global.messages.length }} Messages </a>
+            </li> -->
+            <li>
+                <a [routerLink]="'chats/' + '0IjtNFHmiOHCr98hHlVI'">Global Chat </a>
+            </li>
+
             <li *ngFor="let chat of userChats$ | async">
                 <a [routerLink]="'chats/' + chat.id">{{ chat.id }} - {{ chat.messages.length }} Messages </a>
             </li>
         </ul>
     </div>
     <div class="chatRoom">
-        <app-chat></app-chat>
+        <button (click)="cs.create()">Create New Chat</button>
     </div>
-
-    
-    <!-- <form id="post-form">
-        <div class="form-group">
-            <textarea class="form-control" rows="4" id="make-post" placeholder="What's going on?"></textarea>
-            <button type="submit" class="btn btn-default" id="post-btn">Post!</button>
-        </div>
-    </form>
-    <div class="card">
-        <div class="bar"><a href="">John Doe</a></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-    </div>
-
-    <div class="card">
-        <div class="bar"><a href="">Jane Doe</a></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-    </div> -->
   </div>
-
   
-  <!-- <script src="post-script.js" charset="utf-8"></script> -->
 </ng-container>
 
 <ng-template #whatThe>

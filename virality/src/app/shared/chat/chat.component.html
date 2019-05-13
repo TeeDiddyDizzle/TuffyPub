@@ -1,18 +1,59 @@
 <ng-container *ngIf="chat$ | async as chat">
-    <ng-container *ngIf=" auth.user$ | async as user">
-    <div  class="chatRoom">
-      <ul *ngFor="let msg of chat.messages; trackBy: trackByCreated">
-        <li>
-          <strong> {{ msg.user?.displayName}}</strong>
-          <br>
-          {{ msg.content }}
-        </li>
-      </ul>
-      <div class="message">
-        <input class="text" [(ngModel)]="newMsg" name="newMsg" placeholder="Enter your message" (keydown.enter)="submit(chat.id)">
-        <input class="send" type="submit" value="Send" (click)="submit(chat.id)">
+  <ng-container *ngIf=" auth.user$ | async as user">
+      <div class="dashboard">
+        <div class="sidebar">
+          <div class="profile">
+          </div>
+          <p><a class="link name" href="">{{ user.displayName }}</a></p>
+          <ul>
+              <a href=""> 
+                  <li class="sidelink">
+                      My Groups
+                  </li>
+              </a>
+              <a href=""> 
+                  <li class="sidelink">
+                      Friends
+                  </li>
+              </a>
+              <a href=""> 
+                  <li class="sidelink">
+                      Calendar
+                  </li>
+              </a>
+              <a href=""> 
+                  <li class="sidelink">
+                      Preferences
+                  </li>
+              </a>
+          </ul>
+          <ul>
+              <li>
+                  <a href="http://tuffypub.firebaseapp.com/dashboard/chats/0IjtNFHmiOHCr98hHlVI">Global Chat </a>
+              </li>
+          </ul>
       </div>
-      
+      <div class="chatRoom">
+        <div class="url">
+          <input type="text" class="referralURL" value='https://tuffypub.firebaseapp.com/dashboard/chats/{{ chat.id }}' readonly #referralURL>
+          <button class="copy-button" (click)="copy(referralURL)">COPY</button>
+        </div>
+        <ul *ngFor="let msg of chat.messages; trackBy: trackByCreated">
+          <li>
+            <strong> {{ msg.user?.displayName}}</strong>
+            <br>
+            {{ msg.content }}
+          </li>
+        </ul>
+        <div class="message">
+          <input class="text" [(ngModel)]="newMsg" name="newMsg" placeholder="Enter your message" (keydown.enter)="submit(chat.id)">
+          <input class="send" type="submit" value="Send" (click)="submit(chat.id)">
+        </div>
+      </div>
     </div>
   </ng-container>
 </ng-container>
+
+
+    
+    

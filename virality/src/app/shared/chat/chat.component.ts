@@ -49,4 +49,10 @@ export class ChatComponent implements OnInit {
   private scrollBottom(delay) {
     setTimeout(() => window.scrollTo(0, document.body.scrollHeight), delay);
   }
+
+  copy(referralURL){
+    referralURL.select();
+    document.execCommand('copy');
+    referralURL.setSelectionRange(0, 0);
+  }
 }
