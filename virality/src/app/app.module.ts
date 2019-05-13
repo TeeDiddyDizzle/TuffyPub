@@ -17,10 +17,12 @@ import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 import { SharedModule } from "./shared/shared.module";
+import { GenChatComponent } from './gen-chat/gen-chat.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GenChatComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
