@@ -51,7 +51,7 @@ export class GenChatComponent implements OnInit {
 
   addPost() {
     //console.log(this.user);
-    this.afs.collection('globalChat').add({'name': this.name, 'content': this.content});
+    this.afs.collection('globalChat').add({'name': this.name, 'uid': this.uid, 'content': this.content});
     //update single chat message using uid and set
     //this.afs.collection('globalChat').doc(this.uid).set({'name': this.name, 'content': this.content});
   }
