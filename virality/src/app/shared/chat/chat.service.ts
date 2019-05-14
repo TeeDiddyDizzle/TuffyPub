@@ -5,6 +5,7 @@ import { Observable, combineLatest, of } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { firestore } from 'firebase/app';
 import { AuthService } from '../../users/auth.service';
+import * as firebase from 'firebase/app';
 
 import { async } from 'q';
 
@@ -18,7 +19,13 @@ export class ChatService {
     private afs: AngularFirestore,
     private router: Router
     ) {}
+/*
+  user = firebase.auth().currentUser;
 
+  getCurrentUser() {
+    return this.user;
+  }
+*/
   get(chatID) {
     return this.afs
       .collection<any>('chats')
