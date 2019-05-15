@@ -16,6 +16,7 @@ import { User } from 'firebase';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+  userChats$;
   chat$: Observable<any>;
   newMsg: string;
 
@@ -26,7 +27,7 @@ export class ChatComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-
+    this.userChats$ = this.cs.getUserChats();
     const chatId = this.route.snapshot.paramMap.get('id');
     const source = this.cs.get(chatId);
     this.chat$ = this.cs.joinUsers(source);
@@ -39,14 +40,14 @@ export class ChatComponent implements OnInit {
     }
     this.cs.sendMessage(chatID, this.newMsg);
     this.newMsg = '';
-    this.scrollBottom(100);
+    this.scrollBottom(300);
   }
   
   trackByCreated(i, msg) {
     return msg.createdAt;
   }
 
-  private scrollBottom(delay) {
+  scrollBottom(delay) {
     setTimeout(() => window.scrollTo(0, document.body.scrollHeight), delay);
   }
 

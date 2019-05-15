@@ -9,13 +9,20 @@
     flex-direction: column;
 }
 
-.chatRoom {
+.createChat {
     display: flex;
     flex-flow: column wrap;
     padding-left: 25px;
     padding-right: 25px;
     height: 10%;
     padding-bottom: 0px;
+}
+
+
+button { 
+    background-color: cornflowerblue;
+    border-style:none;
+    border-radius: 2px;
 }
 
 .nav {
