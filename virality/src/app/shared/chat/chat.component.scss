@@ -1,10 +1,92 @@
 .chat-container {
     display: flex;
     flex-direction: column;
-    //justify-content: center;
-    margin-left: 50px;
-    //align-items:center;
-    // margin-left: 25%;
+    // align-items:center;
+    margin-top: 50px;
+    margin-left: 22%;
+}
+
+.card {
+    display: flex;
+    align-items: left;
+    align-self: center;
+    width: 70%;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 45px;
+    padding: 0 10px 0 10px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
+    animation: slide-down 1.0s ease;
+    transition: 0.1s;
+}
+
+.card:hover {
+    width: 73%;
+    /* padding: 5px 29px 5px 29px; */
+    padding: 5px 1.2% 5px 1.2%;
+
+    margin-top: 27px;
+    border-radius: 0;
+}
+
+.bar {
+    height: 25px;
+    color: grey;
+    margin-top: 10px;
+    /* background-color: rgb(173, 173, 173) */
+}
+.bar a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.chat-name {
+    position: fixed;
+    margin-left: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 200px;
+    color: black;
+    font-size: 20px;
+    font-weight: 800;
+
+    input{
+        padding-left: 10px;
+        background-color: rgb(245, 245, 245);
+        border-style: none;
+        color: black;
+        font-size: 20px;
+        font-weight: 800;
+    }
+    input::placeholder {
+        background-color: rgb(245, 245, 245);
+        color: black;
+        font-size: 20px;
+        font-weight: 800;
+    }
+}
+
+.password {
+    position: fixed;
+    margin-left: 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column;
+    width: 150px;
+    margin-left: 5px;
+    margin-top: 50px;
+    padding-left: 10px;
+}
+.save {
+    margin-top: 5px;
+    text-align: center;
+    width: 50px;
 }
 
 #post-content {
@@ -26,126 +108,25 @@
 }
 
 .post-text {
-    width: 30%;
+    width: 50%;
+    height: 45px;
     margin-left: 15px;
+    padding-left: 10px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.075);
 }
 #post-btn {
-    //display: flex;
+    align-self: center;    
     color: white;
     margin-left: 5px;
-    background-color: rgb(46, 11, 70)
+    background-color: rgb(46, 11, 70);
+    transition: 0.3s;
 }
 
 #post-btn:hover {
     background-color: rgb(100, 45, 189);
 }
 
-.url {
-    position: fixed;
-    right: 50px;
-
-    input {
-        width: 300px;
-        margin-right: 5px;
-        opacity: 0.5;
-    }
-}
-.message {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-right: 10px;
-}
-.text {
-    width: 90%;
-}
-
-
-.dashboard {
-    display: flex;
-    background-color: rgb(245, 245, 245) !important;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    font-family: source-sans-pro, Tahoma, Geneva, Verdana, sans-serif !important;
-    /* background: linear-gradient(#dfdfdf, #e9e9e9) !important; */
-    flex-direction: column;
-}
-
-.sidebar p {
-    color: white;
-    font-size: 30px;
-    margin-top: 30px;
-    /* margin-left: 100px; */
-    align-self: center;
-}
-
-.sidebar {
-    padding-top:50px;
-    background-color: rgb(34, 15, 117);
-    z-index: 99;
-    display: flex;
-    position: fixed;
-    min-width: 200px;
-    width: 20%;
-    height: 100%;
-    flex-direction: column;
-}
-
-.sidelink {
-    display: flex;
-    height: 40px;
-    /* margin-right: 50px; */
-    padding: 0 20px 0 20px;
-    align-items: center;
-    transition: 0.3s;
-    text-decoration: none;
-    color: white;
-    border-radius: 3px;
-}
-
-.sidelink:hover {
-    background-color: rgb(106, 95, 151);
-    color: rgb(180, 180, 180);
-}
-
-
-.createChat {
-    display: flex;
-    flex-flow: column wrap;
-    padding-left: 25px;
-    padding-right: 25px;
-    height: 10%;
-    padding-bottom: 0px;
-}
-
-button { 
-    background-color: cornflowerblue;
-    border-style:none;
-    border-radius: 2px;
-}
-
-#post-form {
-    height: 100%;
-    align-self: center;
-    height: 100%;
-    width: 35%;
-    margin-left: 35px;
-    margin-top: 70px;
-}
-
-#post-btn {
-    margin-top: 5px;
-    transition: 0.3s;
-}
-#post-btn:hover {
-    background-color: cornflowerblue;
-}
-
-#make-post {
-    resize: none;
-}
 
 @keyframes slide-down {
     0% {
@@ -159,83 +140,23 @@ button {
 }
 
 
-.link {
-    display: flex;
-    height: 100%;
-    /* margin-right: 50px; */
-    padding: 0 20px 0 20px;
-    align-items: center;
-    transition: 0.3s;
-    text-decoration: none;
-    color: white;
-    border-radius: 3px;
-}
-
-.link:hover {
-    background-color: rgb(106, 95, 151);
-    color: rgb(180, 180, 180);
-}
-
-.name {
-    background-color: rgb(34, 15, 117) !important;
-
-}
-
-.search {
-    background-color: rgb(255, 255, 255);
-    border-style: none;
-    border-radius: 1px;
+.url {
     position: fixed;
-    right: 150px;
-    width: 20%;
-    padding: 5px 5px 5px 5px;
+    top: 60px;
+    right: 50px;
+
+    input {
+        width: 300px;
+        margin-right: 5px;
+        opacity: 0.5;
+    }
+    button {
+        color: white;
+        background-color: rgb(46, 11, 70);
+        transition: 0.3s;
+    }
+    button:hover {
+        background-color: rgb(100, 45, 189);
+    }
+    
 }
-
-.logout {
-    position: fixed;
-    /* margin-right: 0; */
-    right: 0;
-    /* float: right; */
-    height: 50px;
-}
-
-
-.card {
-    display: flex;
-    align-items: left;
-    align-self: center;
-    width: 40%;
-    background-color: white;
-    margin-top: 50px;
-    margin-left: 45px;
-    padding: 0 10px 0 10px;
-    border-radius: 3px;
-    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
-    animation: slide-down 1.0s ease;
-    transition: 0.1s;
-}
-
-.card:hover {
-    width: 42%;
-    /* padding: 5px 29px 5px 29px; */
-    padding: 5px 1.2% 5px 1.2%;
-
-    margin-top: 45px;
-    border-radius: 0;
-}
-
-.bar {
-    height: 25px;
-    color: grey;
-    margin-top: 10px;
-    /* background-color: rgb(173, 173, 173) */
-}
-.bar a {
-    text-decoration: none;
-    font-weight: 600;
-}
-
-a {
-    text-decoration: none !important;
-}
-
