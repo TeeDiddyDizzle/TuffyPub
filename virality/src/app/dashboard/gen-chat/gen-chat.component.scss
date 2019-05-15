@@ -1,17 +1,80 @@
 .chat-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    // align-items:center;
+    //justify-content: center;
+    margin-left: 50px;
+    //align-items:center;
     // margin-left: 25%;
 }
-.message {
+#post-content {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;
     width: 100%;
     margin-right: 10px;
 }
-.text {
-    width: 90%;
+
+.post-form {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.post-text {
+    width: 30%;
+    margin-left: 15px;
+}
+#post-btn {
+    //display: flex;
+    color: white;
+    margin-left: 5px;
+    background-color: rgb(46, 11, 70)
+}
+
+#post-btn:hover {
+    background-color: rgb(100, 45, 189);
+}
+
+
+.card {
+    display: flex;
+    align-items: left;
+    align-self: center;
+    width: 50%;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 45px;
+    padding: 0 10px 0 10px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
+    animation: slide-down 1.0s ease;
+}
+.bar {
+    height: 25px;
+    color: grey;
+    margin-top: 10px;
+    /* background-color: rgb(173, 173, 173) */
+}
+.bar a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -38,7 +38,7 @@ export class GenChatComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.postsCol = this.afs.collection('globalChat');
+    this.postsCol = this.afs.collection('globalChat', ref=> ref.orderBy('createdAt'));
     this.posts = this.postsCol.valueChanges();
     this.auth.user$.subscribe(user=>{
       if(user)
@@ -52,8 +52,8 @@ export class GenChatComponent implements OnInit {
     //this.uName = this.user.uid;
   }
 
-  trackByCreated(i, msg) {
-    return msg.createdAt;
+  trackByCreated() {
+    return this.createdAt;
   }
 
   private scrollBottom(delay) {
@@ -64,6 +64,7 @@ export class GenChatComponent implements OnInit {
     //console.log(this.user);
     this.createdAt = Date.now();
     this.afs.collection('globalChat').add({'name': this.name, 'uid': this.uid, 'content': this.content, 'createdAt': this.createdAt});
+    this.content = "";
     //update single chat message using uid and set
     //this.afs.collection('globalChat').doc(this.uid).set({'name': this.name, 'content': this.content});
     this.scrollBottom(100);
