@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { AuthService } from '../users/auth.service';
+import { AuthService } from '../../users/auth.service';
 
 interface Post {
   name: string;
@@ -30,6 +30,7 @@ export class GenChatComponent implements OnInit {
   uid:string;
   name:string;
   content:string;
+  createdAt;
 
   constructor(
     private auth: AuthService, 
@@ -44,15 +45,28 @@ export class GenChatComponent implements OnInit {
         this.name = user.displayName;
         this.uid = user.uid;
     })
+    this.scrollBottom(500);
+
     //this.user = this.auth.user$;
     //const uid = this.auth.getUser();
     //this.uName = this.user.uid;
   }
 
+  trackByCreated(i, msg) {
+    return msg.createdAt;
+  }
+
+  private scrollBottom(delay) {
+    setTimeout(() => window.scrollTo(0, document.body.scrollHeight), delay);
+  }
+
   addPost() {
     //console.log(this.user);
-    this.afs.collection('globalChat').add({'name': this.name, 'uid': this.uid, 'content': this.content});
+    this.createdAt = Date.now();
+    this.afs.collection('globalChat').add({'name': this.name, 'uid': this.uid, 'content': this.content, 'createdAt': this.createdAt});
     //update single chat message using uid and set
     //this.afs.collection('globalChat').doc(this.uid).set({'name': this.name, 'content': this.content});
+    this.scrollBottom(100);
+
   }
 }
