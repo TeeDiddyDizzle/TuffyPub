@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaqComponent implements OnInit {
 
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
   constructor() { }
 
   ngOnInit() {
