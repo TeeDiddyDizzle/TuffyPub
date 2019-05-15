@@ -147,24 +147,17 @@ button {
     resize: none;
 }
 
-.home {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding: 0 20px 0 20px;
-    text-decoration: none;
-    /* font-family: 'Abril Fatface', cursive; */
-    font-family: bungee;
-    font-size: 20px;
-    color: white;
-    border-radius: 3px;
-
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.home:hover{
-    background-color: rgb(46, 25, 138);
-    text-decoration: none;
-}
 
 .link {
     display: flex;

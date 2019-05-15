@@ -54,10 +54,11 @@
     transition: 0.1s;
 }
 
-:hover {
+.card:hover {
     width: 42%;
     padding: 5px 1.2% 5px 1.2%;
     margin-top: 45px;
+    box-shadow: 7px 7px 13px rgba(128, 128, 128, 0.384);
     border-radius: 0;
 }
 
