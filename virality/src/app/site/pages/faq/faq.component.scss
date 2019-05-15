@@ -1,0 +1,87 @@
+
+a:active, a:focus {
+    outline: none !important;
+}
+
+#post-form {
+    height: 100%;
+    align-self: center;
+    height: 100%;
+    width: 35%;
+    margin-left: 35px;
+    margin-top: 70px;
+}
+#post-btn {
+    margin-top: 5px;
+    transition: 0.3s;
+}
+#post-btn:hover {
+    background-color: cornflowerblue;
+}
+#make-post {
+    resize: none;
+}
+
+.card {
+    display: flex;
+    align-items: left;
+    align-self: center;
+    width: 60%;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 45px;
+    padding: 0 10px 0 10px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
+    animation: slide-down 1.0s ease;
+    transition: 0.1s;
+}
+
+.card:hover {
+    width: 62%;
+    /* padding: 5px 29px 5px 29px; */
+    padding: 5px 1.2% 5px 1.2%;
+    margin-left: 25px;
+    margin-top: 27px;
+    border-radius: 0;
+}
+
+.bar {
+    height: 25px;
+    color: grey;
+    margin-top: 10px;
+    /* background-color: rgb(173, 173, 173) */
+}
+.bar a {
+    text-decoration: none;
+    font-weight: 600;
+}
+.contact-title {
+    text-align: center;
+    background: white;
+    margin-top: 30px;
+    margin-left: 500px;
+    margin-right: 500px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
+}
+form {
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+a {
+    text-decoration: none !important;
+}
+
+@keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

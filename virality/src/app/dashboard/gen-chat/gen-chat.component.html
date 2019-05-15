@@ -1,5 +1,5 @@
 <div class=chat-container>
-  <p class="chat-name">General Chat</p>
+  <p class="chat-info" style="padding-left: 30px">General Chat</p>
   <div class="card" *ngFor="let post of posts | async">
     <div class="bar"><a href="">{{post.name}}</a></div>
      <p class="text-center" id="post-content">{{post.content}}</p>

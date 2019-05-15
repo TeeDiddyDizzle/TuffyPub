@@ -43,19 +43,23 @@
               </li>
           </ul>
       </div>
+      
       <div class="chat-container">
-        <div class="password">
-          <input [(ngModel)]="pass"  name="pass" type="password" placeholder="enter password" (keydown.enter)="changePass(chat.id)">
-          <input class="save" (click)="changePass(chat.id); changeName(chat.id);" value="Save" >
-        </div>
-        <ng-container *ngIf="chat.password === pass">
-          <div class="chat-name">
-              <input [(ngModel)]="newName" name="newName" placeholder="{{ chat.chatName }}" (keydown.enter)="changeName(chat.id)">
-          </div>
-  
-          <div class="url">
-            <input type="text" class="referralURL" value='https://tuffypub.firebaseapp.com/dashboard/chats/{{ chat.id }}' readonly #referralURL>
-            <button class="copy-button" (click)="copy(referralURL)">COPY</button>
+        <ng-container #badPass *ngIf="chat.password !== pass">
+            <div class="password">
+                <input [(ngModel)]="pass"  name="pass" type="password" placeholder="enter chat password" (keydown.enter)="changePass(chat.id)">
+                <!-- <input class="save" (click)="changePass(chat.id); changeName(chat.id);" value="Save" > -->
+            </div>
+        </ng-container>
+        
+        <ng-container *ngIf="chat.password === pass"; else badPass>
+          <div class="chat-info">
+            <input class="chat-name" [(ngModel)]="newName" name="newName" placeholder="{{ chat.chatName }}" (keydown.enter)="changeName(chat.id)">
+        
+            <div class="url">
+              <input type="text" class="referralURL" value='https://tuffypub.firebaseapp.com/dashboard/chats/{{ chat.id }}' readonly #referralURL>
+              <button class="copy-button" (click)="copy(referralURL)">COPY</button>
+            </div>
           </div>
           <div class="card" *ngFor="let msg of chat.messages; trackBy: trackByCreated">
             <div class="bar"><a href="">{{ msg.user?.displayName}}</a></div>
