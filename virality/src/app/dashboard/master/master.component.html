@@ -28,6 +28,9 @@
                 </li>
             </a>
         </ul>
+        <div class="chatRoom">
+            <button (click)="cs.create()">Create New Chat</button>
+        </div>
         <p style = "font-size: 18px">User Chats</p>
         <ul>
             <!-- <li>
@@ -38,10 +41,7 @@
             </li>
         </ul>
     </div>
-    <div class="chatRoom">
-        <button (click)="cs.create()">Create New Chat</button>
-        <app-gen-chat></app-gen-chat>
-    </div>
+    <app-gen-chat></app-gen-chat>
   </div>
 
   
