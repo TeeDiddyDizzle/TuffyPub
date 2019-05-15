@@ -1,13 +1,40 @@
 .chatRoom {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     padding: 25px;
     padding-top: 60px;
-    padding-left: 22%;
-    // height: 100vh;
+    padding-left: 20%;
+    // max-height: 92vh;
+    // overflow: auto;
+    li {
+        margin-bottom: 15px;
+    }
+}
+
+ul {
+    display: flex;
+    flex-flow: column nowrap;
+    list-style: none;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+button { 
+    background-color: cornflowerblue;
+    border-style:none;
+    border-radius: 2px;
 }
 .url {
-    margin-bottom: 30px;
+    position: fixed;
+    right: 50px;
+
+    input {
+        width: 300px;
+        margin-right: 5px;
+        opacity: 0.5;
+    }
 }
 .message {
     display: flex;

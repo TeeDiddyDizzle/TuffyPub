@@ -1,13 +1,14 @@
 <div class=chat-container>
   <ul *ngFor="let post of posts | async ; trackBy: trackByCreated">
     <li>
-      <strong> {{post.name}}</strong>
+      <!-- {{ scrollBottom() }} -->
+      <strong> {{ post.name }}</strong>
       <br>
-      {{post.content}}
+      {{ post.content }}
     </li>
   </ul>
   <div class="message">
     <input class="text" [(ngModel)]="content" name="content" placeholder="Enter your message" (keydown.enter)="addPost()">
-    <input class="send" type="submit" value="Send" (click)="addPost()">
+    <button class="send" type="submit" (click)="addPost()">Send</button>
   </div>
 </div>

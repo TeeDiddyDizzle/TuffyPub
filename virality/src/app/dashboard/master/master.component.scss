@@ -11,11 +11,18 @@
 
 .chatRoom {
     display: flex;
-    flex-flow: column wrap;
-    padding: 25px;
-    padding-top: 100px;
+    flex-flow: column nowrap;
+    padding-bottom: 25px;
+    padding-top: 50px;
     padding-left: 22%;
     height: 100%;
+}
+
+
+button { 
+    background-color: cornflowerblue;
+    border-style:none;
+    border-radius: 2px;
 }
 
 .nav {

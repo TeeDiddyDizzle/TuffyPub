@@ -19,13 +19,7 @@ export class ChatService {
     private afs: AngularFirestore,
     private router: Router
     ) {}
-/*
-  user = firebase.auth().currentUser;
 
-  getCurrentUser() {
-    return this.user;
-  }
-*/
   get(chatID) {
     return this.afs
       .collection<any>('chats')
@@ -37,25 +31,7 @@ export class ChatService {
         })
       );
   }
-  getGlobalChat() {
-    return this.auth.user$.pipe(
-      switchMap(user => {
-        return this.afs
-          .collection('chats', ref => ref.where('count', '==', 0))
-          .snapshotChanges()
-          .pipe(
-            map(actions => {
-              return actions.map(a => {
-                const data: Object = a.payload.doc.data();
-                const id = a.payload.doc.id;
-                return { id, ...data };
-              });
-            })
-          );
-      })
-    );
-  }
-  
+
   getUserChats() {
     return this.auth.user$.pipe(
       switchMap(user => {
@@ -80,6 +56,7 @@ export class ChatService {
 
     const data = {
       uid,
+      chatName: '',
       createdAt: Date.now(),
       count: 0,
       messages: []
@@ -89,7 +66,6 @@ export class ChatService {
   }
 
   async sendMessage(chatID, content) {
-    // this.afs.collection('posts').add({'userName': this.userName, 'content': this.content});
     const { uid } = await this.auth.getUser();
     const data = {
       uid,

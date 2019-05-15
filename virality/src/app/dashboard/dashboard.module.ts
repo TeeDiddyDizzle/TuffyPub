@@ -12,8 +12,6 @@ import { GenChatComponent } from './gen-chat/gen-chat.component';
 const routes: Routes = [
   { path: 'dashboard', component: MasterComponent },
   { path: 'dashboard/chats/:id', component: ChatComponent, canActivate: [AuthGuard] },
-  //{ path: 'dashboard/gen-chat', component: GenChatComponent },
-
 ]
 
 @NgModule({
