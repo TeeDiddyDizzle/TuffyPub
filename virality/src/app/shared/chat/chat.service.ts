@@ -9,10 +9,22 @@ import * as firebase from 'firebase/app';
 
 import { async } from 'q';
 
+interface Document {
+  uid,
+  cid: string,
+  chatName: string,
+  password: string,
+  createdAt: number,
+  count: 0,
+  messages: []
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
+  doc: AngularFirestoreDocument<Document>;
+  obsDoc: Observable<Document>;
 
   constructor(
     private auth: AuthService, 
@@ -36,7 +48,8 @@ export class ChatService {
     return this.auth.user$.pipe(
       switchMap(user => {
         return this.afs
-          .collection('chats', ref => ref.where('uid', '==', user.uid ))
+          // .collection('chats', ref => ref.where('uid', '==', user.uid ))
+          .collection('chats', ref => ref.where('count', '==', 0 ))
           .snapshotChanges()
           .pipe(
             map(actions => {
@@ -56,13 +69,20 @@ export class ChatService {
 
     const data = {
       uid,
+      cid: '',
       chatName: '',
+      password: '',
       createdAt: Date.now(),
       count: 0,
       messages: []
     };
     const docRef = await this.afs.collection('chats').add(data);
-    return this.router.navigate(['chats',docRef.id]);
+    const ref = this.afs.collection('chats').doc(docRef.id);
+    ref.update({
+      chatName: docRef.id,
+      cid: docRef.id
+    });
+    return this.router.navigate(['dashboard/chats',docRef.id]);
   }
 
   async sendMessage(chatID, content) {
@@ -80,6 +100,29 @@ export class ChatService {
       });
     }
   }
+
+  async updateChat(chatID, newName) {
+    const { uid } = await this.auth.getUser();
+    if ( uid ) {
+      const ref = this.afs.collection('chats').doc(chatID);
+      return ref.update({
+        chatName: newName
+      });
+    }
+  }
+
+
+
+  async updatePass(chatID, pass) {
+    const { uid } = await this.auth.getUser();
+    if ( uid ) {
+      const ref = this.afs.collection('chats').doc(chatID);
+      return ref.update({
+        password: pass
+      });
+    }
+  }
+
 
   joinUsers(chat$: Observable<any>) {
     let chat;

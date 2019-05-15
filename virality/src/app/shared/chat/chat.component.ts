@@ -13,12 +13,15 @@ import { User } from 'firebase';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss', '../../dashboard/master/master.component.scss']
 })
 export class ChatComponent implements OnInit {
   userChats$;
   chat$: Observable<any>;
+  newName: string;
   newMsg: string;
+  pass: string;
+  valid: boolean;
 
   constructor(
     public cs: ChatService, 
@@ -27,6 +30,7 @@ export class ChatComponent implements OnInit {
     ) {}
 
   ngOnInit() {
+    this.pass = '';
     this.userChats$ = this.cs.getUserChats();
     const chatId = this.route.snapshot.paramMap.get('id');
     const source = this.cs.get(chatId);
@@ -55,5 +59,20 @@ export class ChatComponent implements OnInit {
     referralURL.select();
     document.execCommand('copy');
     referralURL.setSelectionRange(0, 0);
+  }
+
+  changeName(chatID) {
+    if (!this.newName) {
+      return;
+    }
+    this.cs.updateChat(chatID, this.newName);
+    this.newName = '';
+  }
+
+  changePass(chatID) {
+    if (!this.pass) {
+      return;
+    }
+    const realPass = this.cs.updatePass(chatID, this.pass);
   }
 }

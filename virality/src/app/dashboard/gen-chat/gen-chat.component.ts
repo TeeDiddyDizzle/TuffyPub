@@ -20,7 +20,7 @@ interface User {
 @Component({
   selector: 'app-gen-chat',
   templateUrl: './gen-chat.component.html',
-  styleUrls: ['./gen-chat.component.scss']
+  styleUrls: ['./gen-chat.component.scss','../../shared/chat/chat.component.scss']
 })
 export class GenChatComponent implements OnInit {
   user: Observable<User>;
