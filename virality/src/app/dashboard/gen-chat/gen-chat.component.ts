@@ -52,10 +52,6 @@ export class GenChatComponent implements OnInit {
     //this.uName = this.user.uid;
   }
 
-  trackByCreated() {
-    return this.createdAt;
-  }
-
   private scrollBottom(delay) {
     setTimeout(() => window.scrollTo(0, document.body.scrollHeight), delay);
   }
