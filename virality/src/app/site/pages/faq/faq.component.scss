@@ -3,25 +3,10 @@ a:active, a:focus {
     outline: none !important;
 }
 
-#post-form {
-    height: 100%;
-    align-self: center;
-    height: 100%;
-    width: 35%;
-    margin-left: 35px;
-    margin-top: 70px;
+.faq {
+    display: flex;
+    flex-direction:column;
 }
-#post-btn {
-    margin-top: 5px;
-    transition: 0.3s;
-}
-#post-btn:hover {
-    background-color: cornflowerblue;
-}
-#make-post {
-    resize: none;
-}
-
 .card {
     display: flex;
     align-items: left;
@@ -29,7 +14,6 @@ a:active, a:focus {
     width: 60%;
     background-color: white;
     margin-top: 30px;
-    margin-left: 45px;
     padding: 0 10px 0 10px;
     border-radius: 3px;
     box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
@@ -57,20 +41,71 @@ a:active, a:focus {
     font-weight: 600;
 }
 .contact-title {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    align-self: center;
     text-align: center;
     background: white;
     margin-top: 30px;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 3px;
     box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
 }
-form {
+.contact-form {
+    display: flex;
     text-align: center;
-    margin-top: 10px;
-    margin-left: 500px;
-    margin-right: 500px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
+
+form {
+    width: 100%;
+}
+
+.message {
+    width: 40%;
+    height: 45px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    padding-left: 10px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.075);
+}
+
+.name {
+    width: 40%;
+    height: 45px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    padding-left: 10px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.075);
+}
+
+.email {
+    width: 40%;
+    height: 45px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    padding-left: 10px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.075);
+}
+#sub-btn {
+    width:40%;
+    background-color: rgb(46, 11, 70);
+    color: white;
+}
+
+#sub-btn:hover {
+    background-color: rgb(100, 45, 189);
+}
+
 a {
     text-decoration: none !important;
 }

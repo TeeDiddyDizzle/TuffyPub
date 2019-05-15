@@ -24,14 +24,10 @@
 
         <div class="contact-form">
             <form id="contact-form" method="POST" action="contact-form-handler.php">
-            <input name="Name" type="text" class="form-control" placeholder="Your Name" required> <br>
-            <input name="Email" type="email" class="form-control" placeholder="Your Email" required> <br>
-
-                <textarea name="message" class="form-control" placeholder="Message" row="4" required></textarea><br>
-
-                <input type="submit" class="from-control submit" value="SEND MESSAGE">
-            
-
+            <input name="name" type="text" class="name" placeholder="Your Name" required> <br>
+            <input name="email" type="email" class="email" placeholder="Your Email" required> <br>
+            <input name="message" class="message" placeholder="Message" required><br>
+            <button type="submit" class="btn btn-primary-outline" id="sub-btn" value="SEND MESSAGE">Submit</button>
             </form>
         </div>
 </div>
