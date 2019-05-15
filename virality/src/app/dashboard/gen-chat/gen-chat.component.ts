@@ -52,10 +52,6 @@ export class GenChatComponent implements OnInit {
     console.log(this.posts);
   }
 
-  trackByCreated() {
-    return this.createdAt;
-  }
-
   scrollBottom(delay) {
     setTimeout(() => window.scrollTo(0, document.body.scrollHeight), delay);
   }
