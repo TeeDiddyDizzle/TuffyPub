@@ -1,2 +1,5 @@
-# angular-viral
-Generic viral loop site written in angular, hosted with firebase with SSR &amp; lazy loading for performance. Adds google analytics and support for facebook pixel.
+# TuffyPub
+Web based live chat using Angular 7 and Firebase/Firestore
+
+User authentication provided by Firebase for secure user login and registration
+

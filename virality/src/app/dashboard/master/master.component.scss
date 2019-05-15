@@ -9,13 +9,13 @@
     flex-direction: column;
 }
 
-.chatRoom {
+.createChat {
     display: flex;
-    flex-flow: column nowrap;
-    padding-bottom: 25px;
-    padding-top: 50px;
-    padding-left: 22%;
-    height: 100%;
+    flex-flow: column wrap;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 10%;
+    padding-bottom: 0px;
 }
 
 
@@ -53,7 +53,6 @@ button {
 .sidebar p {
     color: white;
     font-size: 30px;
-    margin-top: 30px;
     /* margin-left: 100px; */
     align-self: center;
 }
@@ -85,26 +84,6 @@ button {
 .sidelink:hover {
     background-color: rgb(106, 95, 151);
     color: rgb(180, 180, 180);
-}
-#post-form {
-    height: 100%;
-    align-self: center;
-    height: 100%;
-    width: 35%;
-    margin-left: 35px;
-    margin-top: 70px;
-}
-
-#post-btn {
-    margin-top: 5px;
-    transition: 0.3s;
-}
-#post-btn:hover {
-    background-color: cornflowerblue;
-}
-
-#make-post {
-    resize: none;
 }
 
 .home {
@@ -164,56 +143,5 @@ button {
     right: 0;
     /* float: right; */
     height: 50px;
-}
-
-
-.card {
-    display: flex;
-    align-items: left;
-    align-self: center;
-    width: 40%;
-    background-color: white;
-    margin-top: 50px;
-    margin-left: 45px;
-    padding: 0 10px 0 10px;
-    border-radius: 3px;
-    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.384);
-    animation: slide-down 1.0s ease;
-    transition: 0.1s;
-}
-
-.card:hover {
-    width: 42%;
-    /* padding: 5px 29px 5px 29px; */
-    padding: 5px 1.2% 5px 1.2%;
-
-    margin-top: 45px;
-    border-radius: 0;
-}
-
-.bar {
-    height: 25px;
-    color: grey;
-    margin-top: 10px;
-    /* background-color: rgb(173, 173, 173) */
-}
-.bar a {
-    text-decoration: none;
-    font-weight: 600;
-}
-
-a {
-    text-decoration: none !important;
-}
-
-@keyframes slide-down {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 

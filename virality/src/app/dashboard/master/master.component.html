@@ -33,20 +33,17 @@
                 </li>
             </a>
         </ul>
+        <div class="createChat">
+            <button (click)="cs.create()">Create New Chat</button>
+        </div>
         <p style = "font-size: 18px">User Chats</p>
         <ul>
-            <li>
-                <button (click)="cs.create()">Create New Chat</button>
-            </li>
-
             <li *ngFor="let chat of userChats$ | async">
                 <a [routerLink]="'chats/' + chat.id">{{ chat.id }} - {{ chat.messages.length }} Messages </a>
             </li>
         </ul>
     </div>
-    <div class="chatRoom">
-        <app-gen-chat></app-gen-chat>
-    </div>
+    <app-gen-chat></app-gen-chat>
   </div>
 
   

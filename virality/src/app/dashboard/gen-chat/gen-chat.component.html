@@ -1,14 +1,10 @@
 <div class=chat-container>
-  <ul *ngFor="let post of posts | async ; trackBy: trackByCreated">
-    <li>
-      <!-- {{ scrollBottom() }} -->
-      <strong> {{ post.name }}</strong>
-      <br>
-      {{ post.content }}
-    </li>
-  </ul>
-  <div class="message">
-    <input class="text" [(ngModel)]="content" name="content" placeholder="Enter your message" (keydown.enter)="addPost()">
-    <button class="send" type="submit" (click)="addPost()">Send</button>
+  <div class="card" *ngFor="let post of posts | async">
+    <div class="bar"><a href="">{{post.name}}</a></div>
+     <p class="text-center" id="post-content">{{post.content}}</p>
   </div>
+  <div class="post-form">
+    <input class="post-text" [(ngModel)]="content" name="content" id="content" placeholder="Enter your message" (keydown.enter)="addPost()">
+    <button type="submit" class="btn btn-primary-outline" id="post-btn" (click)="addPost()">Send</button>
+    </div>
 </div>

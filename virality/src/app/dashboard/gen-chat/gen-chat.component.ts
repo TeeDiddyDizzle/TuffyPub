@@ -52,8 +52,8 @@ export class GenChatComponent implements OnInit {
     console.log(this.posts);
   }
 
-  trackByCreated(i, msg) {
-    return msg.createdAt;
+  trackByCreated() {
+    return this.createdAt;
   }
 
   scrollBottom(delay) {
