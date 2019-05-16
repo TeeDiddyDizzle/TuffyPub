@@ -59,7 +59,9 @@
     width: 15%;
 
     input {
-        color: white;
+        border-style: none;
+        color: black;
+        background-color: grey;
         font-size: 14px;
         width: 100%;
         margin-right: 5px;
@@ -237,7 +239,7 @@ a {
         right: 10px;
 
         input {
-            color: white;
+            // color: white;
             font-size: 12px;
             // width: 50px;
             margin-right: 5px;
