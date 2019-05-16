@@ -21,7 +21,7 @@
     <div *ngIf="auth.user$ | async as user; else loggedOut">
       <ul class="nav navbar-right">
         <li>
-            <button class="logout" color="light" (click)="auth.signOut()">Logout</button>
+            <button class="logout" style="margin-right: 20px" color="light" (click)="auth.signOut()">Logout</button>
         </li>
       </ul>
       
@@ -31,7 +31,7 @@
 
 
 <ng-template #loggedOut>
-  <ul class="nav navbar-right">
+  <ul class="nav navbar-right" style="margin-right: 20px">
     <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> 
       Login</a>
     </li>

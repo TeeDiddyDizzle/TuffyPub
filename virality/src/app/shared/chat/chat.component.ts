@@ -20,6 +20,7 @@ export class ChatComponent implements OnInit {
   chat$: Observable<any>;
   newName: string;
   newMsg: string;
+  newPass: string;
   pass: string;
   valid: boolean;
 
@@ -70,9 +71,10 @@ export class ChatComponent implements OnInit {
   }
 
   changePass(chatID) {
-    if (!this.pass) {
+    if (!this.newPass) {
       return;
     }
-    const realPass = this.cs.updatePass(chatID, this.pass);
+    this.pass = this.newPass;
+    const realPass = this.cs.updatePass(chatID, this.newPass);
   }
 }

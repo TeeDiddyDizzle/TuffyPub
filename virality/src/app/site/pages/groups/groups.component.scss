@@ -16,6 +16,7 @@ h1 {
     align-items: left;
     align-self: center;
     width: 40%;
+    min-width: 360px;
     background-color: white;
     margin-top: 30px;
     // margin-left: 45px;
@@ -38,7 +39,7 @@ h1 {
 }
 
 .bar {
-    height: 25px;
+    min-height: 25px;
     color: grey;
     margin-top: 10px;
     /* background-color: rgb(173, 173, 173) */
@@ -46,4 +47,11 @@ h1 {
 .bar a {
     text-decoration: none;
     font-weight: 600;
+}
+
+@media (max-width:600px) {
+    .groups {
+        padding-top: 200px;
+        padding-left: 0;
+    }
 }

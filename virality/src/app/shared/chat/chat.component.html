@@ -3,7 +3,7 @@
     <div class="chat-container">
       <ng-container #badPass *ngIf="chat.password !== pass">
           <div class="password">
-              <input [(ngModel)]="pass"  name="pass" type="password" placeholder="enter chat password" (keydown.enter)="changePass(chat.id)">
+              <input [(ngModel)]="pass"  name="pass" type="password" placeholder="enter chat password">
               <!-- <input class="save" (click)="changePass(chat.id); changeName(chat.id);" value="Save" > -->
           </div>
       </ng-container>
@@ -11,7 +11,8 @@
       <ng-container *ngIf="chat.password === pass"; else badPass>
         <div class="chat-info">
           <input class="chat-name" [(ngModel)]="newName" name="newName" placeholder="{{ chat.chatName }}" (keydown.enter)="changeName(chat.id)">
-      
+          <input class="chat-name chat-pass" [(ngModel)]="newPass"  name="newPass" type="password" placeholder="Update chat password" (keydown.enter)="changePass(chat.id)">
+
           <div class="url">
             <input type="text" class="referralURL" value='https://tuffypub.firebaseapp.com/dashboard/chats/{{ chat.id }}' readonly #referralURL>
             <button class="copy-button" (click)="copy(referralURL)">COPY</button>
