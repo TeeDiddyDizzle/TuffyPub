@@ -7,7 +7,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'virality';
+  title = 'TuffyPub';
 
   constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
     angulartics2GoogleAnalytics.startTracking();

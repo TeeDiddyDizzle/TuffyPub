@@ -1,7 +1,6 @@
 {
   "projects": {
     "default": "angular-viral-starter",
-    "virality": "virality-d6e74",
     "tuffy": "tuffypub"
   }
 }

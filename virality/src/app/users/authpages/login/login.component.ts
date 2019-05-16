@@ -63,21 +63,4 @@ export class LoginComponent implements OnInit {
         });
   }
 
-  googleSignIn() {
-    this.auth.googleSignIn().then(data => {
-      this.router.navigateByUrl('/dashboard');
-    }, error => {
-      this.alert.error(error);
-      this.loading = false;
-    })
-  }
-
-  facebookSignIn() {
-    this.auth.facebookSignIn().then(data => {
-      this.router.navigateByUrl('/dashboard');
-    }, error => {
-      this.alert.error(error);
-      this.loading = false;
-    })
-  }
 }

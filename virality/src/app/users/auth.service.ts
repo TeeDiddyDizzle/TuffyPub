@@ -85,19 +85,6 @@ export class AuthService {
       });
   }
 
-  async googleSignIn() {
-    const provider = new auth.GoogleAuthProvider();
-    const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user);
-  }
-
-  async facebookSignIn() {
-    const provider = new auth.FacebookAuthProvider();
-    const credential = await this.afAuth.auth.signInWithPopup(provider);
-    return this.updateUserData(credential.user)
-  }
-
-
   private updateUserData(user) {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
